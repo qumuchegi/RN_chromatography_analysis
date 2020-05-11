@@ -5,7 +5,7 @@ import Chart from '../../components/chart';
 
 export default withRouter(Result);
 function Result(props) {
-  let {peaks, rawData, filteredYarr} = props.history.location.state;
+  let {peaks, rawData, filteredYarr, chartName} = props.history.location.state;
   const xArr = rawData.xArr;
   const yArrStack = {
     rawYArr: rawData.yArr,
@@ -15,7 +15,7 @@ function Result(props) {
   return (
     <SafeAreaView>
       <View>
-        <Chart xArr={xArr} yArrStack={yArrStack} peaks={peaks} />
+        <Chart xArr={xArr} yArrStack={yArrStack} peaks={peaks} chartName={chartName} />
       </View>
     </SafeAreaView>
   );

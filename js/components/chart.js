@@ -1,11 +1,13 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable quotes */
-import React,{useState, useEffect} from 'react';
-import {View, Text, Image, Dimensions, TouchableHighlight, ScrollView} from 'react-native';
+import React,{useState, useEffect, useRef} from 'react';
+import {View, Text, Image, Dimensions, TouchableHighlight, ScrollView, Platform} from 'react-native';
 import api from '../api';
 import {withRouter} from 'react-router';
 import Table from './table';
 import backhomeImg from '../assets/imgs/back.png';
+
+import { WebView } from 'react-native-webview';
 
 import {baseUrl as baseServerUrl} from '../config';
 const screenWidth = Math.round(Dimensions.get('window').width);
@@ -14,10 +16,10 @@ const screenHeight = Math.round(Dimensions.get('window').height);
 export default withRouter(Chart);
 
 function Chart(props) {
+  const webref = useRef()
   const {history} = props;
   const {xArr, yArrStack, peaks} = props;
   const [option, setOption] = useState(null);
-  const [chartImg, setChartImg] = useState(null);
   const [tableHeaders, setTableHeaders] = useState([]);
   const [tableRows, setTableRows] = useState([]);
 
@@ -77,19 +79,10 @@ function Chart(props) {
     ]
     //
     let option = printChart(xArr, yArr_stack);
-    console.log({option});
-    renderChart(option);
-    //setOption(option);
+    setOption(option)
     option=null
   }, []);
 
-  async function renderChart(option){
-    let res = await api.post('/server-render-chart', {option});
-    if (res.code === 0) {
-      let imgUrl = baseServerUrl + res.data.url
-      setChartImg(imgUrl);
-    }
-  }
   const printChart = (xArr, yArr_stack) => {
     var option = {
       legend: {
@@ -126,7 +119,7 @@ function Chart(props) {
   }
 
   const getMarkPoints_peak = (peaks) => {
-    console.log('peaks:', peaks)
+    //console.log('peaks:', peaks)
     let markPoints = []
     peaks.forEach((peak,i)=>{
       markPoints.push(
@@ -140,7 +133,7 @@ function Chart(props) {
     return markPoints;
   }
   return (
-    <ScrollView height={screenHeight-50}>
+    <ScrollView height={screenHeight}>
       <View>
         <Text style={{
             textAlign: 'center',
@@ -153,9 +146,29 @@ function Chart(props) {
           分析结果
         </Text>
       </View>
-      <ScrollView>
       <View>
-        { chartImg && <Image style={{ width: 400, height: 300}} source={{uri: chartImg}}/>}
+      <View style={{
+        width: screenWidth,
+        height: 200
+      }}>
+        {
+          option && 
+          <WebView
+            javaScriptEnabled={true}
+            originWhitelist={['*']}
+            ref={webref}
+            style={{width: screenWidth, fontSize: 20}}
+            onLoad={()=>{
+              webref.current.postMessage(JSON.stringify({option}))
+            }}
+            source={
+              Platform.OS === 'android' ?
+              {uri: 'file:///android_asset/html/webview-charts.html'}
+              :
+              require('../assets/html/webview-charts.html')
+            }
+          />
+        }
       </View>
       <View>
         <Table headers={tableHeaders} rows={tableRows} />
@@ -174,6 +187,7 @@ function Chart(props) {
             borderStyle: 'solid',
             padding: 3,
             borderColor: 'rgb(72,145,115)',
+            marginBottom: 100
           }}
           onPress={() => history.push('/home')}>
           <View
@@ -181,7 +195,7 @@ function Chart(props) {
               display:'flex',
               flexDirection:'row',
               alignItems:'center',
-              justifyContent: 'center',
+              justifyContent: 'center'
             }}
           >
             <Image source={backhomeImg} style={{width: 20, height: 20}}/>
@@ -192,7 +206,7 @@ function Chart(props) {
           </View>
         </TouchableHighlight>
       </View>
-      </ScrollView>
+      </View>
     </ScrollView>
   );
 }

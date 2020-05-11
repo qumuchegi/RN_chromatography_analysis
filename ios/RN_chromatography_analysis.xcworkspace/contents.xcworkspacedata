@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:empty.swift">
+   </FileRef>
+   <FileRef
       location = "group:RN_chromatography_analysis.xcodeproj">
    </FileRef>
    <FileRef

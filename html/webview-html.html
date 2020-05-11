@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta content="webkit" name="renderer">
+    <meta name="vieport" content="width=device-width,initial-scale=1.0"/>
+  </head>
+  <body>
+    <h1 id='chart-container'>5657</h1>
+    <script>
+      window.onmessage = function(ev){
+        console.log(ev)
+        document.getElementById('chart-container').innerText = ev.data
+      }
+    </script>
+  </body>
+</html>

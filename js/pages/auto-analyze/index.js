@@ -41,7 +41,6 @@ function Auto(props) {
   const [peakIdentWin, setPeakIdentWin] = useState(null);
   const [loadingFiles, setLoadingFiles] = useState(false);
   const [loadingAnalyze, setLoadingAnalyze] = useState(false);
-  const [showloadingFileModal, setShowloadingFileModal] = useState(false);
   const [showPCUploadModal, setShowPCUploadModal] = useState(false);
 
   async function readFiles() {
@@ -102,7 +101,7 @@ function Auto(props) {
       if (res.code === 0) {
         setLoadingAnalyze(false);
         let {peaks, rawData, filteredYarr} = res.data;
-        history.push('/analyze-result', {peaks, rawData, filteredYarr});
+        history.push('/analyze-result', {peaks, rawData, filteredYarr, chartName: selectedTxtFile});
       }
     }
   }

@@ -20,6 +20,8 @@
 		5DC28074B2D3F004437F4C15 /* libPods-RN_chromatography_analysis-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F037243ECBF5C50B693FE158 /* libPods-RN_chromatography_analysis-tvOSTests.a */; };
 		6CDA8C8D04E059516BAAA25F /* libPods-RN_chromatography_analysis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D98D13FEA4407CA3D9B21B5 /* libPods-RN_chromatography_analysis.a */; };
 		88EB1B18D68AF181597256F9 /* libPods-RN_chromatography_analysis-RN_chromatography_analysisTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3991F6C88E7A90B48101577 /* libPods-RN_chromatography_analysis-RN_chromatography_analysisTests.a */; };
+		B30FFE6524695A3300EA4A83 /* libRNCPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B30FFE6424695A3300EA4A83 /* libRNCPicker.a */; };
+		B30FFE6724695A3B00EA4A83 /* libreact-native-webview.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B30FFE6624695A3B00EA4A83 /* libreact-native-webview.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,9 @@
 		5FC107D08349DBF61F58EE81 /* Pods-RN_chromatography_analysis-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RN_chromatography_analysis-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-RN_chromatography_analysis-tvOS/Pods-RN_chromatography_analysis-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		8D98D13FEA4407CA3D9B21B5 /* libPods-RN_chromatography_analysis.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RN_chromatography_analysis.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8AF469D62D237E8D6EAD9DF /* libPods-RN_chromatography_analysis-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RN_chromatography_analysis-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B30FFE6424695A3300EA4A83 /* libRNCPicker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNCPicker.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B30FFE6624695A3B00EA4A83 /* libreact-native-webview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-webview.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3CAA23F24692FA300BE6941 /* RN_chromatography_analysis-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RN_chromatography_analysis-Bridging-Header.h"; sourceTree = "<group>"; };
 		D247F610E9929BD3E343AD3D /* Pods-RN_chromatography_analysis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RN_chromatography_analysis.debug.xcconfig"; path = "Target Support Files/Pods-RN_chromatography_analysis/Pods-RN_chromatography_analysis.debug.xcconfig"; sourceTree = "<group>"; };
 		D84519B93C8BA0565D39DB47 /* Pods-RN_chromatography_analysis-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RN_chromatography_analysis-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-RN_chromatography_analysis-tvOSTests/Pods-RN_chromatography_analysis-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		E3991F6C88E7A90B48101577 /* libPods-RN_chromatography_analysis-RN_chromatography_analysisTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RN_chromatography_analysis-RN_chromatography_analysisTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +87,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B30FFE6724695A3B00EA4A83 /* libreact-native-webview.a in Frameworks */,
+				B30FFE6524695A3300EA4A83 /* libRNCPicker.a in Frameworks */,
 				6CDA8C8D04E059516BAAA25F /* libPods-RN_chromatography_analysis.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,7 +141,6 @@
 				5113B7905EE06E3AB23E6BF9 /* Pods-RN_chromatography_analysis-tvOSTests.debug.xcconfig */,
 				D84519B93C8BA0565D39DB47 /* Pods-RN_chromatography_analysis-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -148,6 +154,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				B3CAA23F24692FA300BE6941 /* RN_chromatography_analysis-Bridging-Header.h */,
 			);
 			name = RN_chromatography_analysis;
 			sourceTree = "<group>";
@@ -155,6 +162,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B30FFE6624695A3B00EA4A83 /* libreact-native-webview.a */,
+				B30FFE6424695A3300EA4A83 /* libRNCPicker.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				8D98D13FEA4407CA3D9B21B5 /* libPods-RN_chromatography_analysis.a */,
@@ -292,7 +301,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1140;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -373,7 +382,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -644,6 +653,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = RN_chromatography_analysis;
+				SWIFT_OBJC_BRIDGING_HEADER = "RN_chromatography_analysis-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -666,6 +676,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = RN_chromatography_analysis;
+				SWIFT_OBJC_BRIDGING_HEADER = "RN_chromatography_analysis-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
