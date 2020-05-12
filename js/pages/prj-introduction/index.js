@@ -27,7 +27,6 @@ export default function PrjIntro() {
   const [introDir, setIntroDir] = useState(null)
   const [showFileName, setShowFileName] = useState('')
   const [showFileContent, setShowFileContent] = useState('')
-  const [mdContainerHeight, setMdContainerHeight] = useState(0)
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
@@ -48,20 +47,7 @@ export default function PrjIntro() {
       setShowFileContent(res.data.jsonFileContent)
     }
   }
-  function autoSize(){
-    //console.log(dirContainer)
-    const handle = findNodeHandle(dirContainer.current)
-    UIManager.measure(handle,(x, y, width, height, pageX, pageY)=>{
-      //console.log('相对父视图位置x:', x);
-      //console.log('相对父视图位置y:', y);
-      //console.log('组件宽度width:', width);
-      //console.log('组件高度height:', height);
-      //console.log('距离屏幕的绝对位置x:', pageX);
-      //console.log('距离屏幕的绝对位置y:', pageY);
-      setMdContainerHeight(screenHeight - 100 - height -40 - 5) // 100 是底部tab高,，40 是头部高度
-    })
-   
-  }
+  
   return (
     <View>
        <Modal
@@ -121,13 +107,12 @@ export default function PrjIntro() {
             </View>
           }
           onChangeVisibility={(value) => {
-            autoSize()
           }}
         >
         </Accordion>
         )}
       </View>
-      <ScrollView style={[styles.mdContent, {height: mdContainerHeight}]}>
+      <ScrollView style={[styles.mdContent]}>
         <View style={{display: 'flex', flexDirection: 'row', justifyContent: "flex-start", alignItems: 'center', marginBottom: 10}}>
           {
             showFileContent!=='' ?

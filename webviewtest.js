@@ -1,18 +1,13 @@
 import React, {useRef} from 'react';
-import { Text, View, SafeAreaView, Alert, Platform } from 'react-native';
+import { Text, View, SafeAreaView, Alert, Platform, Button } from 'react-native';
 import { WebView } from 'react-native-webview';
 const htmlFile = Platform.OS === 'android' ? {uri: 'file:///android_asset/html/webview-charts.html'} : require('./html/webview-html.html');
 
 export default function App(){
   const webref = useRef()
-  function start(){
-    Alert.alert('开始加载')
-  }
-  function end(){
-    Alert.alert('结束加载')
-  }
-  function err(){
-    Alert.alert('加载输错')
+ 
+  function onclick(){
+    webref.current.postMessage('123')
   }
   return (
     <SafeAreaView>
@@ -27,10 +22,13 @@ export default function App(){
       <WebView
           originWhitelist={['*']}
           ref={webref}
-          style={{width: 400, fontSize: 20}}
+          javaScriptEnabled={true}
           source={htmlFile}
+          onLoad={()=>{  webref.current.postMessage('123') }}
+          injectedJavaScript={`document.getElementById('chart-container').innerText = '1'`}
         />
       </View>
+      <Button onPress={()=>onclick} title='点我'/>
       <Text> test webview </Text>
     </SafeAreaView>
   )
